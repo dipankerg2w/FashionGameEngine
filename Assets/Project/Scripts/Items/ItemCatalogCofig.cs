@@ -11,26 +11,26 @@ namespace CoreGame.Items
         public const string AssetPath = "Assets/Project/Data/GameSettings/ItemCatalogCofig.asset";
 #endif
 
-        [SerializeField] private List<ItemCatalogEntry> items = new List<ItemCatalogEntry>();
+        [SerializeField] private List<ItemCatalogData> items = new List<ItemCatalogData>();
 
-        public List<ItemCatalogEntry> Items => items;
+        public List<ItemCatalogData> Items => items;
 
         public void AddItemCatalogEntry(CoreGame.Items.ItemData itemData)
         {
             if(items == null)
             {
-                items = new List<ItemCatalogEntry>();
+                items = new List<ItemCatalogData>();
             }
 
-            ItemCatalogEntry itemCatalogEntry = items.Find(arg => arg.CategoryType == itemData.CategoryType);
-            if(itemCatalogEntry == null)
+            ItemCatalogData itemCatalogData = items.Find(arg => arg.CategoryType == itemData.CategoryType);
+            if(itemCatalogData == null)
             {
-                itemCatalogEntry = new ItemCatalogEntry(itemData.CategoryType, new ItemCatalogData(itemData));
-                items.Add(itemCatalogEntry);
+                itemCatalogData = new ItemCatalogData(itemData);
+                items.Add(itemCatalogData);
             }
             else
             {
-                itemCatalogEntry.AddItemCatalogData(itemData);
+                itemCatalogData.UpdateItemCatalogData(itemData);
             }
         }
     }
@@ -58,6 +58,14 @@ namespace CoreGame.Items
         public CoreGame.Theme.Type ThemeType => themeType;
 
         public ItemCatalogData(CoreGame.Items.ItemData itemData)
+        {
+            this.itemName = itemData.ItemName;
+            this.characterId = itemData.CharacterId;
+            this.categoryType = itemData.CategoryType;
+            this.themeType = itemData.ThemeType;
+        }
+
+        public void UpdateItemCatalogData(CoreGame.Items.ItemData itemData)
         {
             this.itemName = itemData.ItemName;
             this.characterId = itemData.CharacterId;
