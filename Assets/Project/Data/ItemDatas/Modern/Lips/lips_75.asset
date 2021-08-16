@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: lips_75
+  m_EditorClassIdentifier: 
+  itemName: lips_75
+  characterId: bms_a
+  themeType: 4
+  categoryType: 2
+  item: {fileID: 21300000, guid: 6f9c13f69302c42be827457cd0029e61, type: 3}
+  thumbnail: {fileID: 21300000, guid: 589680f0d91e94ad584035fe30ce2173, type: 3}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: shoes_292
+  m_EditorClassIdentifier: 
+  itemName: shoes_292
+  characterId: mob_a
+  themeType: 3
+  categoryType: 9
+  item: {fileID: 21300000, guid: d60edfe3997674807b122403ca576f0e, type: 3}
+  thumbnail: {fileID: 21300000, guid: 3fad4fc7b392a40ee80aeb58c4b9ed1a, type: 3}

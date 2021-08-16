@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: top_124
+  m_EditorClassIdentifier: 
+  itemName: top_124
+  characterId: brd_b
+  themeType: 3
+  categoryType: 6
+  item: {fileID: 21300000, guid: b64463ee2a88f4f9687303b87be8e85a, type: 3}
+  thumbnail: {fileID: 21300000, guid: af5df7c1669d3467995917b5e56f80e3, type: 3}

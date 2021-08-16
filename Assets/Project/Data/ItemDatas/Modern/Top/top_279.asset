@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: top_279
+  m_EditorClassIdentifier: 
+  itemName: top_279
+  characterId: mob_a
+  themeType: 4
+  categoryType: 6
+  item: {fileID: 21300000, guid: 34b8e5bf6b1494d13a2243d82d026cd4, type: 3}
+  thumbnail: {fileID: 21300000, guid: 788753de0748b4d91a7f1240d9fe8bd8, type: 3}

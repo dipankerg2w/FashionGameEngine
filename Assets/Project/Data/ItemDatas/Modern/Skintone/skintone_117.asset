@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: skintone_117
+  m_EditorClassIdentifier: 
+  itemName: skintone_117
+  characterId: mob_a
+  themeType: 8
+  categoryType: 4
+  item: {fileID: 21300000, guid: 90ecee0a78b444712862123f6f779e6b, type: 3}
+  thumbnail: {fileID: 21300000, guid: b422bf2ba4d9b4b40a644d1d4b00af5c, type: 3}

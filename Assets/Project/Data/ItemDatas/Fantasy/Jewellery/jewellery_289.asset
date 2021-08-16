@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: jewellery_289
+  m_EditorClassIdentifier: 
+  itemName: jewellery_289
+  characterId: brd_c
+  themeType: 1
+  categoryType: 12
+  item: {fileID: 21300000, guid: ec03c2b7118d249c6b141e8b73a15de8, type: 3}
+  thumbnail: {fileID: 21300000, guid: 4a9cdaf0a7a714b97802aca547b13f7f, type: 3}

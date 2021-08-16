@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: skintone_41
+  m_EditorClassIdentifier: 
+  itemName: skintone_41
+  characterId: bms_a
+  themeType: 8
+  categoryType: 4
+  item: {fileID: 21300000, guid: f9ed131a942734b0ea8da43cd4c08df2, type: 3}
+  thumbnail: {fileID: 21300000, guid: a99352e6a3c96463f938eb57dd2fd4ea, type: 3}
