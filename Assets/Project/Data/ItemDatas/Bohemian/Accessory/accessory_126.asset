@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: accessory_126
+  m_EditorClassIdentifier: 
+  itemName: accessory_126
+  characterId: brd_b
+  themeType: 2
+  categoryType: 11
+  item: {fileID: 21300000, guid: 902f48dd23343457aac410fc4e32a115, type: 3}
+  thumbnail: {fileID: 21300000, guid: b85fc8b6aa5c049ffae9e7bf4c067377, type: 3}

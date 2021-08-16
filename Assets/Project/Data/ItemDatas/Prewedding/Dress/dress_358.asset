@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: dress_358
+  m_EditorClassIdentifier: 
+  itemName: dress_358
+  characterId: bms_a
+  themeType: 5
+  categoryType: 5
+  item: {fileID: 21300000, guid: e2bf47473f8f9455595d0fc54d3b7a0e, type: 3}
+  thumbnail: {fileID: 21300000, guid: 76c7a9993b3e7434dbfa899fced7f762, type: 3}

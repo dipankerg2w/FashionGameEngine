@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: bg_167
+  m_EditorClassIdentifier: 
+  itemName: bg_167
+  characterId: none
+  themeType: 2
+  categoryType: 14
+  item: {fileID: 21300000, guid: 01c6cb73bb22f4d76aa8c498c947eabe, type: 3}
+  thumbnail: {fileID: 21300000, guid: 849ce4fa697454dff9852e44cad98689, type: 3}

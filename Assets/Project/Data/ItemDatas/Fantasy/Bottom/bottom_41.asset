@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: bottom_41
+  m_EditorClassIdentifier: 
+  itemName: bottom_41
+  characterId: brd_c
+  themeType: 1
+  categoryType: 7
+  item: {fileID: 21300000, guid: f2834559cd9d3433a9074cd31959991e, type: 3}
+  thumbnail: {fileID: 21300000, guid: 3d238c527e9274d7b937f78673abc124, type: 3}

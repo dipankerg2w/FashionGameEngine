@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb11b417de0147279b1db8aa177d736, type: 3}
+  m_Name: eyes_119
+  m_EditorClassIdentifier: 
+  itemName: eyes_119
+  characterId: brd_a
+  themeType: 2
+  categoryType: 1
+  item: {fileID: 21300000, guid: 417edc09c4c7040498909621693074e1, type: 3}
+  thumbnail: {fileID: 21300000, guid: 17f746302fc724765b88f1eea0cc714e, type: 3}
