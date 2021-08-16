@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.AddressableAssets;
@@ -105,6 +106,20 @@ namespace EditorTools
                         searchedFile.filePath = filePath;
                     }
                 }
+
+                //VERIFY THUMBNAIL PATH
+                //If thumbnail path is empty use filepath as thumbnail path...
+                if (searchedFileList != null && searchedFileList.Count > 0)
+                {
+                    int count = searchedFileList.Count;
+                    for (var i = 0; i < count; i++)
+                    {
+                        if (string.IsNullOrEmpty(searchedFileList[i].thumbnailPath))
+                        {
+                            searchedFileList[i].thumbnailPath = searchedFileList[i].filePath;
+                        }
+                    }
+                }
             }
         }
 
@@ -142,7 +157,7 @@ namespace EditorTools
                             {
                                 SimpleJSON.JSONNode nodeData = node;
                                 string label = nodeData["Label"];
-                                string status = nodeData["Status"];
+                                // string status = nodeData["Status"];
                                 string theme = nodeData["Category"];
                                 string character = nodeData["Character"];
 
@@ -166,7 +181,6 @@ namespace EditorTools
                                         itemContentDataList.Add(itemData);
                                     }
                                 }
-
                             }
                         }
 
@@ -194,51 +208,57 @@ namespace EditorTools
                     if (GUILayout.Button("Update ItemData SO", GUILayout.Width(155)))
                     {
                         canUpdateCatalog = false;
-                        string folderPath = Path.GetFullPath(AssetDatabase.GetAssetPath(dataItemFolder));
-                        int count = itemContentDataList.Count;
-                        for (int i = 0; i < count; i++)
-                        {
-                            ContentsItem.ItemData itemData = itemContentDataList[i];
-                            string themeType = itemData.themeType.ToString().ToLower();
-                            themeType = char.ToUpperInvariant(themeType[0]) + themeType.Substring(1); //Keeping 1st Letter Capital
-                            string categoryFolder = $"{folderPath}/{themeType}";
-
-                            itemData.UpdateSoFilePath(categoryFolder);
-                            
-                            Debug.Log($"PATH 1: {categoryFolder} ");
-                            if (Directory.Exists(categoryFolder) == false)
-                            {
-                                Directory.CreateDirectory(categoryFolder);
-                                AssetDatabase.SaveAssets();
-                                AssetDatabase.Refresh();
-                            }
-
-                            if (itemData.categoryType != CoreGame.Items.Category.Type.None)
-                            {
-                                string categoryType = itemData.categoryType.ToString().ToLower();
-                                categoryType = char.ToUpperInvariant(categoryType[0]) + categoryType.Substring(1); //Keeping 1st Letter Capital
-                                categoryFolder = $"{categoryFolder}/{categoryType}";
-
-                                itemData.UpdateSoFilePath(categoryFolder);
-
-                                Debug.Log($"PATH 2: {categoryFolder} ");
-                                if (Directory.Exists(categoryFolder) == false)
-                                {
-                                    Directory.CreateDirectory(categoryFolder);
-                                    AssetDatabase.SaveAssets();
-                                    AssetDatabase.Refresh();
-                                }
-                            }
-
-                            CreateItemDataSO(itemData);
-                        }
+                        CreateContentAsync();
                         canUpdateCatalog = true;
                     }
                 }
             }
         }
 
-        private void CreateItemDataSO(ContentsItem.ItemData data)
+        private async void CreateContentAsync()
+        {
+            string folderPath = Path.GetFullPath(AssetDatabase.GetAssetPath(dataItemFolder));
+            int count = itemContentDataList.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                ContentsItem.ItemData itemData = itemContentDataList[i];
+                string themeType = itemData.themeType.ToString().ToLower();
+                themeType = char.ToUpperInvariant(themeType[0]) + themeType.Substring(1); //Keeping 1st Letter Capital
+                string categoryFolder = $"{folderPath}/{themeType}";
+                itemData.UpdateSoFilePath(categoryFolder);
+                await CreateDirectory(categoryFolder);
+
+                if (itemData.categoryType != CoreGame.Items.Category.Type.None)
+                {
+                    string categoryType = itemData.categoryType.ToString().ToLower();
+                    categoryType = char.ToUpperInvariant(categoryType[0]) + categoryType.Substring(1); //Keeping 1st Letter Capital
+                    categoryFolder = $"{categoryFolder}/{categoryType}";
+                    itemData.UpdateSoFilePath(categoryFolder);
+                    await CreateDirectory(categoryFolder);
+                }
+
+                await CreateItemDataSOAsync(itemData);
+            }
+        }
+
+        private async Task CreateDirectory(string directoryPath)
+        {
+            if (Directory.Exists(directoryPath) == false)
+            {
+                await Task.Run(() => Directory.CreateDirectory(directoryPath));
+                Debug.Log($"Created Directory PATH: {directoryPath} ");
+                AssetDatabase.SaveAssets();
+                // AssetDatabase.Refresh();
+                await Task.Delay(10);
+            }
+            else
+            {
+                await Task.Delay(10);
+            }
+        }
+
+        private async Task CreateItemDataSOAsync(ContentsItem.ItemData data)
         {
             CoreGame.Items.ItemData asset = null;
             if (File.Exists(data.itemSOFilePath))
@@ -249,7 +269,8 @@ namespace EditorTools
             {
                 asset = ScriptableObject.CreateInstance<CoreGame.Items.ItemData>();
                 AssetDatabase.CreateAsset(asset, data.GetSoAssetPath);
-                AssetDatabase.SaveAssets();
+                Debug.Log($"Created Item SO: {data.GetSoAssetPath}");
+                await Task.Delay(10);
             }
 
             if (asset != null)
@@ -261,15 +282,19 @@ namespace EditorTools
                 asset.UpdateSprite(assetItem, assetItemThumbnail);
 
                 EditorUtility.SetDirty(asset);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                await Task.Delay(10);
             }
+
+            await Task.Delay(10);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            Debug.Log($"Finished Item SO: {data.itemName}");
         }
 
         #endregion CREATING ITEMDATA SO
 
         #region UPDATE ITEM CATALOG
-        
+
         private bool canUpdateCatalog;
 
         private void ItemCatalogGUI()
@@ -280,7 +305,7 @@ namespace EditorTools
                 if (GUILayout.Button("Update Item Catalog", GUILayout.Width(155)))
                 {
                     var catalogConfig = (ItemCatalogCofig)AssetDatabase.LoadAssetAtPath(ItemCatalogCofig.AssetPath, typeof(ItemCatalogCofig));
-                    if(catalogConfig == null)
+                    if (catalogConfig == null)
                     {
                         Debug.Log($"Cannot find ItemCatalogCofig Createing new one in Path: {ItemCatalogCofig.AssetPath}");
 
@@ -308,17 +333,11 @@ namespace EditorTools
                 tempItemCatalogList = new List<TempItemCatalog>();
                 for (var i = 0; i < count; i++)
                 {
-                    int countItems = catalogConfig.Items[i].ItemCatalogDatas.Count;
-                    for (int j = 0; j < countItems; j++)
-                    {
-                        ItemCatalogData data = catalogConfig.Items[i].ItemCatalogDatas[j];
-
-                        TempItemCatalog tempItemCatalog = new TempItemCatalog();
-                        tempItemCatalog.itemName = data.ItemName;
-                        tempItemCatalog.labelName = data.labelName;
-                        tempItemCatalog.isLocal = data.isLocal;
-                        tempItemCatalogList.Add(tempItemCatalog);
-                    }
+                    TempItemCatalog tempItemCatalog = new TempItemCatalog();
+                    tempItemCatalog.itemName    = catalogConfig.Items[i].ItemName;
+                    tempItemCatalog.labelName   = catalogConfig.Items[i].labelName;
+                    tempItemCatalog.isLocal     = catalogConfig.Items[i].isLocal;
+                    tempItemCatalogList.Add(tempItemCatalog);
                 }
             }
         }
